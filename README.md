@@ -17,7 +17,3 @@ Testing instructions:
 To test go to:
 
 http://localhost:3000/recipes.html
-http://localhost:3000/recipes
-http://localhost:3000/index.html
-http://localhost:3000/
-http://localhost:3000
