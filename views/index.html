@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 4</title>
+	<link rel = "stylesheet" href = "styles/styles.css">
+	<script type = "text/javascript">
+	document.addEventListener('DOMContentLoaded', () =>{
+		let xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = () =>{
+			if(xhr.readyState == 4 && xhr.status == 200) {
+				let response = JSON.parse(xhr.responseText);
+				let obj = JSON.parse(JSON.parse(response));
+				let ingredientdiv = document.getElementById('gallery');
+				ingredientdiv.innerHTML = '';
+				ingredientdiv.innerHTML = ingredientdiv.innerHTML + `<h2> </h2>`
+				for(var i = 0; i < 30; i++){ // loop to place images of food
+					ingredientdiv.innerHTML = ingredientdiv.innerHTML + `
+					<div class = "slide" style = "float:left">
+					<a target = "_blank" href="${obj.recipes[i].f2f_url}">
+					<img src = "${obj.recipes[i].image_url}" width = "350" height = "250">
+					</a>
+					<div class = "title" style = "text-align:center">${obj.recipes[i].title}</div>
+					</div>
+					`
+				}
+			}
+		}
+		xhr.open('post', `/`, true);
+		xhr.send();
+	});
+	</script>
+</head>
+<div style = "text-align:center">
+	<p class = "p" style = "display:inline"> Enter an Ingredient: </p> <input id = "text" type = "text" name = "ingredient">
+	<input class = "sub" method = "post" id = "submit" type = "submit" value = "Submit" onClick = "getRecipies()">
+</div>
+<div id = "gallery" style = "text-align: center"></div>
+<script type = "text/javascript" src = "js/script.js"></script>
+</body>
+</html>

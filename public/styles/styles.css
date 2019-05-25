@@ -1,0 +1,17 @@
+html {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.sub {
+  height: 35px;
+  color: white;
+  background-color: lightskyblue;
+  font-family: 'Roboto', sans-serif;
+}
+
+input {
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-left: 5px;
+}
